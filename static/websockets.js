@@ -16,7 +16,7 @@ function load(key_from_html, elem) {
     $("#print_output").empty();
     dict["method"] = key_from_html;
     dict[key_from_html] = $("#url").val();
-    dict["tag_image"] = $("#tag_image").val() || "default";
+    dict["tag_image"] = $("#tag_image").val();
     } else if (key_from_html == "create") {
     dict["method"] = key_from_html;
     dict["elem"] = elem;
