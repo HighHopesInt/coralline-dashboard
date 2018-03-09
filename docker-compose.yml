@@ -1,15 +1,14 @@
 version: '3'
 services:
   web:
-    image: django_alpine
+    image:
     environment:
-    - NAME=highhopes
-    - USER=user
-    - PASSWORD=yourpassword
-    - HOST=127.0.0.1
-    - PORTDB=3307
+    - NAME=
+    - USER=
+    - PASSWORD=
+    - HOST=
+    - PORTDB=
     network_mode: "host"
-    container_name: "project_highhopes_container"
     command: python3 manage.py migrate
     command: python3 manage.py runserver
     volumes:
