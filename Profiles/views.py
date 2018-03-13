@@ -41,7 +41,6 @@ class UserProfileView(DetailView):
     template_name = 'user_profile.html'
 
 
-
 @method_decorator(auth_decorators, name='dispatch')
 class DashboardView(TemplateView):
     template_name = "dashboard.html"
