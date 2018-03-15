@@ -12,7 +12,7 @@
 
 ### Dependencies
 #### This application works in conjunction with:
-* https://github.com/Sergei-vb/docker_database
+* https://github.com/Sergei-vb/docker_repositories
 * https://github.com/Sergei-vb/async_test
 
 ### Installation
