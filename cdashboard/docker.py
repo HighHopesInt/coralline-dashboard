@@ -1,4 +1,4 @@
-from HighHopes.settings import *
+from cdashboard.settings import *
 
 DATABASES = {
     'default': {

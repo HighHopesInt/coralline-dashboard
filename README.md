@@ -1,4 +1,4 @@
-# HighHopes
+# coralline-dashboard
 
 ## Table of contents
 - [Getting Started](#getting-started)
@@ -12,8 +12,8 @@
 
 ### Dependencies
 #### This application works in conjunction with:
-* https://github.com/Sergei-vb/docker_repositories
-* https://github.com/Sergei-vb/async_test
+* https://github.com/Sergei-vb/coralline-components
+* https://github.com/Sergei-vb/coralline-rpc
 
 ### Installation
 1. [Docker](https://docs.docker.com/install/ "Docker")
@@ -33,7 +33,7 @@ You need to go to the directory with the Dockerfile of the cloned repository, th
 3. Run Container: ```docker-compose up```
 
 ### Run in virtualenv
-* You need to fill in the file ```HighHopes/dev.py.template``` with your values
-* Rename it to ```HighHopes/dev.py```
+* You need to fill in the file ```cdashboard/dev.py.template``` with your values
+* Rename it to ```cdashboard/dev.py```
 * Run the command: ```./manage.py migrate```
 * Run the command: ```./manage.py runserver```

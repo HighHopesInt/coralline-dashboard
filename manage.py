@@ -3,11 +3,11 @@ import os
 import sys
 
 if __name__ == "__main__":
-    # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "HighHopes.settings")
-    if os.path.exists("./HighHopes/docker-check"):
-        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "HighHopes.docker")
+    # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cdashboard.settings")
+    if os.path.exists("./cdashboard/docker-check"):
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cdashboard.docker")
     else:
-        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "HighHopes.dev")
+        os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cdashboard.dev")
     try:
         from django.core.management import execute_from_command_line
     except ImportError:

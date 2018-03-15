@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
-ROOT_URLCONF = 'HighHopes.urls'
+ROOT_URLCONF = 'cdashboard.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'HighHopes.wsgi.application'
+WSGI_APPLICATION = 'cdashboard.wsgi.application'
 
 
 # Database
