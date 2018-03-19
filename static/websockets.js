@@ -1,4 +1,7 @@
-var ws = new WebSocket("ws://" + location.hostname + ":8888" + "/load_from_docker/");
+var ws = new WebSocket("ws://" + location.hostname + ":8889"
+                        + "/load_from_docker/"
+                        + "?user_id=" + user_id.toString()
+                        );
 ws.onopen = function() {
     console.log("open");
 };
