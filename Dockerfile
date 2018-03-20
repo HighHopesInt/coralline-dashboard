@@ -14,6 +14,4 @@ RUN apk add --no-cache python3 && \
     pip3 install --upgrade pip setuptools && \
     rm -r /root/.cache && \
     pip3 install -r requirements.txt && \
-    touch HighHopes/docker-check
-
-CMD ["sh"]
+    touch /app/cdashboard/docker-check
