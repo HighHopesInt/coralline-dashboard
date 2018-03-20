@@ -1,4 +1,4 @@
-var ws = new WebSocket("ws://" + location.hostname + ":8889"
+var ws = new WebSocket("ws://" + location.hostname + ":8888"
                         + "/load_from_docker/"
                         + "?user_id=" + user_id.toString()
                         );

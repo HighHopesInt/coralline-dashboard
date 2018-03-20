@@ -9,7 +9,10 @@ services:
     - HOST=
     - PORTDB=
     network_mode: "host"
-    command: python3 manage.py migrate
-    command: python3 manage.py runserver
-    volumes:
-     - .:/app
+    entrypoint:
+      - sh
+      - -c
+      - "python3 manage.py migrate &&
+         python3 manage.py runserver"
+#    volumes:
+#     - .:/app
