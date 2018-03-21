@@ -5,3 +5,4 @@ pytz==2018.3
 ua-parser==0.7.3
 user-agents==1.1.0
 pylint==1.8.2
+git+https://github.com/HighHopesInt/django-coralline-images

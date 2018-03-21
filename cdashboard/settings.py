@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django_user_agents',
 
     'Profiles',
-    'UserImages',
+    'django_coralline_images',
 ]
 
 MIDDLEWARE = [
