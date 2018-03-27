@@ -13,27 +13,31 @@ ws.onclose = function() {
     console.log("close");
 };
 
+function tag_image(user_id, tag_str){
+    return user_id + "/" + (~tag_str.indexOf(":") ? tag_str : tag_str+":latest")
+}
+
 function load(key_from_html, elem) {
     var dict = {};
     if (key_from_html == "url_address") {
-    $("#print_output").empty();
-    dict["method"] = key_from_html;
-    dict[key_from_html] = $("#url").val();
-    dict["tag_image"] = $("#tag_image").val();
+        $("#print_output").empty();
+        dict["method"] = key_from_html;
+        dict[key_from_html] = $("#url").val();
+        dict["tag_image"] = tag_image(user_id, $("#tag_image").val());
     } else if (key_from_html == "create") {
-    dict["method"] = key_from_html;
-    dict["elem"] = elem;
+        dict["method"] = key_from_html;
+        dict["elem"] = elem;
     } else if (key_from_html == "start") {
-    dict["method"] = key_from_html;
-    dict["elem"] = elem.slice(1);
+        dict["method"] = key_from_html;
+        dict["elem"] = elem.slice(1);
     } else if (key_from_html == "stop") {
-    dict["method"] = key_from_html;
-    dict["elem"] = elem.slice(1);
+        dict["method"] = key_from_html;
+        dict["elem"] = elem.slice(1);
     } else if (key_from_html == "remove") {
-    dict["method"] = key_from_html;
-    dict["elem"] = elem.slice(1);
+        dict["method"] = key_from_html;
+        dict["elem"] = elem.slice(1);
     } else {
-    dict["method"] = key_from_html;
+        dict["method"] = key_from_html;
     };
     dict = JSON.stringify(dict);
     ws.send(dict);
