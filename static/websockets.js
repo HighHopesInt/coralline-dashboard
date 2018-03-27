@@ -20,10 +20,12 @@ function tag_image(user_id, tag_str){
 function load(key_from_html, elem) {
     var dict = {};
     if (key_from_html == "url_address") {
+        var tag_str = $("#tag_image").val().trim();
+        if (!(tag_str)) {alert('Please specify a tag!'); return;}
         $("#print_output").empty();
         dict["method"] = key_from_html;
         dict[key_from_html] = $("#url").val();
-        dict["tag_image"] = tag_image(user_id, $("#tag_image").val());
+        dict["tag_image"] = tag_image(user_id, tag_str);
     } else if (key_from_html == "create") {
         dict["method"] = key_from_html;
         dict["elem"] = elem;
