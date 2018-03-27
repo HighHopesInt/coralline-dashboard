@@ -8,7 +8,7 @@ ADD . /app
 
 ENV LANG=en_US.UTF-8 LANGUAGE=en LC_CTYPE=en_US.UTF-8
 
-RUN apk add --no-cache python3 && \
+RUN apk add --no-cache python3 git && \
     python3 -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
     pip3 install --upgrade pip setuptools && \
