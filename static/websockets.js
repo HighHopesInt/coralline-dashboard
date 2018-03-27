@@ -48,11 +48,15 @@ function hendlerMessage(getjson) {
     key_from_html == "remove") {$("#print_containers").empty();};
     switch (key_from_html) {
       case "images":
-         for (key in parsejson.images) {
-         $("#print_images").append("<li>" + parsejson.images[key] +
-         "</li>" + "<button onclick='load(\"create\", \"" + parsejson.images[key] +
-         "\")'>Create Container</button>");
-         };
+         for (item in parsejson.images) {
+             var image = parsejson.images[item];
+             $("#print_images").append("<li>" +
+             image["tag"].split("/")[1] + // hiding 'user_id' part of the tag
+             (image["available"] ? "": " -- not available") + "</li>"
+             + "<button " + (image["available"] ? "": "disabled='disabled'")
+             + " onclick='load(\"create\", \"" + image["tag"] +
+             "\")'>Create Container</button>");
+             };
          break;
       case "create":
       case "start":
