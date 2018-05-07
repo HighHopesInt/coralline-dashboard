@@ -14,5 +14,3 @@ services:
       - -c
       - "python3 manage.py migrate &&
          python3 manage.py runserver"
-#    volumes:
-#     - .:/app

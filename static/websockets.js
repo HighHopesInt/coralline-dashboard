@@ -18,26 +18,26 @@ function tag_image(user_id, tag_str){
 }
 
 function load(key_from_html, elem) {
-    var dict = {};
-    if (key_from_html == "url_address") {
+    var dict = {"params": {}};
+    if (key_from_html == "build_image") {
         var tag_str = $("#tag_image").val().trim();
         if (!(tag_str)) {alert('Please specify a tag!'); return;}
         $("#print_output").empty();
         dict["method"] = key_from_html;
-        dict[key_from_html] = $("#url").val();
-        dict["tag_image"] = tag_image(user_id, tag_str);
+        dict["params"]["url"] = $("#url").val();
+        dict["params"]["tag_image"] = tag_image(user_id, tag_str);
     } else if (key_from_html == "create") {
         dict["method"] = key_from_html;
-        dict["elem"] = elem;
+        dict["params"]["elem"] = elem;
     } else if (key_from_html == "start") {
         dict["method"] = key_from_html;
-        dict["elem"] = elem.slice(1);
+        dict["params"]["elem"] = elem.slice(1);
     } else if (key_from_html == "stop") {
         dict["method"] = key_from_html;
-        dict["elem"] = elem.slice(1);
+        dict["params"]["elem"] = elem.slice(1);
     } else if (key_from_html == "remove") {
         dict["method"] = key_from_html;
-        dict["elem"] = elem.slice(1);
+        dict["params"]["elem"] = elem.slice(1);
     } else {
         dict["method"] = key_from_html;
     };
@@ -54,8 +54,8 @@ function hendlerMessage(getjson) {
     key_from_html == "remove") {$("#print_containers").empty();};
     switch (key_from_html) {
       case "images":
-         for (item in parsejson.images) {
-             var image = parsejson.images[item];
+         for (item in parsejson.result) {
+             var image = parsejson.result[item];
              $("#print_images").append("<li>" +
              image["tag"].split("/")[1] + // hiding 'user_id' part of the tag
              (image["available"] ? "": " -- not available") + "</li>"
@@ -69,23 +69,23 @@ function hendlerMessage(getjson) {
       case "stop":
       case "remove":
       case "containers":
-         for (key in parsejson.containers) {
-         if (parsejson.containers[key][1].indexOf("Up") == 0) {
-         $("#print_containers").append("<li>" + parsejson.containers[key][0] +
-         "<br/>" + parsejson.containers[key][1] + "</li>" +
-         "<button onclick='load(\"stop\", \"" + parsejson.containers[key][0] +
+         for (key in parsejson.result) {
+         if (parsejson.result[key][1].indexOf("Up") == 0) {
+         $("#print_containers").append("<li>" + parsejson.result[key][0] +
+         "<br/>" + parsejson.result[key][1] + "</li>" +
+         "<button onclick='load(\"stop\", \"" + parsejson.result[key][0] +
          "\")'>Stop Container</button>");} else {
-         $("#print_containers").append("<li>" + parsejson.containers[key][0] +
-         "<br/>" + parsejson.containers[key][1] + "</li>" +
-         "<button onclick='load(\"start\", \"" + parsejson.containers[key][0] +
+         $("#print_containers").append("<li>" + parsejson.result[key][0] +
+         "<br/>" + parsejson.result[key][1] + "</li>" +
+         "<button onclick='load(\"start\", \"" + parsejson.result[key][0] +
          "\")'>Start Container</button>" + "<button onclick='load(\"remove\", \"" +
-         parsejson.containers[key][0] + "\")'>Remove Container</button>");}
+         parsejson.result[key][0] + "\")'>Remove Container</button>");}
          };
          break;
-      case "url_address":
-         $("#print_output").append("<li>" + parsejson.output + "</li>");
+      case "build_image":
+         $("#print_output").append("<li>" + parsejson.result + "</li>");
          break;
       default:
-         alert(parsejson.message)
+         alert(parsejson.error)
     };
 };

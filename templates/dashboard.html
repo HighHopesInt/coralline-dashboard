@@ -7,7 +7,7 @@
 </head>
 <body>
 <script>var user_id = {{ user.id }}</script>
-<script src="{% static "websockets.js" %}"></script>
+<script src="{% static 'websockets.js' %}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
@@ -36,7 +36,7 @@
         Enter the url-address containing the directory with the Dockerfile:
         <input type="text" id="url" placeholder="url"><br/>Enter tag for image:
         <input type="text" id="tag_image" placeholder="tag"><br/>
-        <input type="button" value="Build" onclick="load('url_address')">
+        <input type="button" value="Build" onclick="load('build_image')">
         <ul id="print_output" style="background-color:grey"></ul>
     </div>
 </body>
