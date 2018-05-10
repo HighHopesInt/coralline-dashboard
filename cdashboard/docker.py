@@ -1,3 +1,4 @@
+"""Settings for docker use case."""
 from cdashboard.settings import *
 
 DATABASES = {

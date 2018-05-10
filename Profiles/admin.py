@@ -1,3 +1,4 @@
+"""Admin CBV's."""
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
@@ -8,16 +9,19 @@ from .models import Profile
 
 
 class ProfileAdmin(admin.ModelAdmin):
+    """Profiles list CBV."""
     list_display = ('user', 'os', 'language')
     list_filter = ('os', 'language')
 
 
 class UserInline(admin.StackedInline):
+    """Inline for user CBV."""
     model = Profile
     can_delete = False
 
 
 class UserProfileCreationForm(UserCreationForm):
+    """User profile creation form."""
     inlines = ()
     os1 = forms.CharField(max_length=50, required=False)
     language1 = forms.CharField(max_length=50, required=False)
@@ -37,6 +41,7 @@ class UserProfileCreationForm(UserCreationForm):
 
 
 class UserProfileAdmin(UserAdmin):
+    """User profile CBV."""
     inlines = (UserInline,)
 
     add_form = UserProfileCreationForm
