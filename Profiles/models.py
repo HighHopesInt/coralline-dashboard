@@ -9,7 +9,6 @@ class Profile(models.Model):
     os = models.CharField(max_length=100)
     language = models.CharField(max_length=50)
 
-    # @property
     def __str__(self):
         return self.user.username
 
@@ -19,7 +18,11 @@ class Profile(models.Model):
             Profile.objects.create(
                 user=instance,
                 os=instance.os if hasattr(instance, 'os') else '--',
-                language=instance.language if hasattr(instance, 'language') else '--'
+                language=(
+                    instance.language
+                    if hasattr(instance, 'language')
+                    else '--'
+                )
             )
 
     @receiver(post_save, sender=User)

@@ -26,7 +26,10 @@ class RegisterFormView(FormView):
     def form_valid(self, form):
         instance = form.save(commit=False)
 
-        instance.os = self.request.user_agent.os.family + ' ' + self.request.user_agent.os.version_string
+        instance.os = (
+                self.request.user_agent.os.family + ' ' +
+                self.request.user_agent.os.version_string
+        )
         instance.language = self.request.META['LANGUAGE']
 
         instance.save()
