@@ -1,4 +1,4 @@
-Django==1.11.23
+Django==1.11.28
 django-user-agents==0.3.2
 PyMySQL==0.8.0
 pytz==2018.3
